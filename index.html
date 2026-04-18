@@ -12,7 +12,42 @@
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7QKQBWT"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <h1>GTM ve GA4 Kurulumu Test Sayfası</h1>
-    <p>Bağlantı şu an kontrol ediliyor...</p>
+    <h1>E-Ticaret İzleme Test Sayfası</h1>
+    <p>Aşağıdaki butonlara basarak GTM testlerini yapabilirsiniz:</p>
+
+    <button id="add-to-cart-button" style="padding: 10px; background-color: #28a745; color: white; border: none; cursor: pointer;">
+        Sepete Ekle (Teddy Bear)
+    </button>
+
+    <button id="checkout-button" style="padding: 10px; background-color: #007bff; color: white; border: none; cursor: pointer; margin-left: 10px;">
+        Ödeme İşlemine Devam Et
+    </button>
+
+    <script>
+      // Sepete Ekleme Olayı
+      document.getElementById('add-to-cart-button').addEventListener('click', function() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'addToCart',
+          'item': {
+            'id': 'teddy-bear',
+            'name': 'Teddy Bear',
+            'price': 30.00
+          }
+        });
+        alert('Ürün sepete eklendi!');
+      });
+
+      // Ödemeye Gitme Olayı
+      document.getElementById('checkout-button').addEventListener('click', function() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'goToCheckout',
+          'total_quantity': 1,
+          'total_price': 30.00
+        });
+        alert('Ödeme sayfasına yönlendiriliyorsunuz!');
+      });
+    </script>
 </body>
 </html>
